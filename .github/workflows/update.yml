@@ -1,0 +1,49 @@
+name: Atualizar dashboard
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # todo hora cheia (UTC)
+  workflow_dispatch:        # permite acionar manualmente
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Gerar dashboard
+        run: python build_dashboard.py
+
+      - name: Instalar Node / Staticrypt
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Encriptar com Staticrypt
+        run: |
+          npx staticrypt@3.5.4 index.html \
+            --password "${{ secrets.STATICRYPT_PASSWORD }}" \
+            --short
+          cp encrypted/index.html index.html
+          rm -rf encrypted/
+
+      - name: Commit e push (só se mudou)
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "Nada mudou, nenhum commit necessário."
+          else
+            git commit -m "Auto: atualiza dashboard $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi

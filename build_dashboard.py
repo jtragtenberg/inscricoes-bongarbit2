@@ -5,7 +5,9 @@ import csv, json, re, os, hashlib, random
 from pathlib import Path
 from collections import Counter
 
-TSV_FILE = "Inscritos Bongarbit - Escola de Luteria - Página1 (1).tsv"
+SHEET_ID = "1aV8c0MJ87UlccE056i3q1S0BXAbvwbaKeXxX9e0ZfF8"
+TSV_FILE = "inscritos.tsv"          # arquivo local (baixado do Sheets ou copiado manualmente)
+TSV_FALLBACK = "Inscritos Bongarbit - Escola de Luteria - Página1 (2).tsv"
 OUTPUT   = "index.html"
 IMAGES   = "imagens"
 GEOCACHE = "geocache.json"
@@ -162,6 +164,31 @@ def detect_groups(c):
                 found[key] = grp["label"]
                 break
     return found
+
+
+# ── Google Sheets ─────────────────────────────────────────────────────────────
+
+def fetch_sheet():
+    """Baixa o TSV da planilha pública do Google Sheets.
+    A planilha precisa estar com acesso 'Qualquer pessoa com o link pode ver'.
+    Salva em TSV_FILE para ser lido por parse_tsv().
+    """
+    import urllib.request, urllib.error
+    url = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=tsv&gid=0"
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=15) as r:
+            data = r.read().decode("utf-8")
+        with open(TSV_FILE, "w", encoding="utf-8") as f:
+            f.write(data)
+        rows = data.strip().count("\n")
+        print(f"  ✓ Planilha baixada do Google Sheets ({rows} linhas)")
+        return True
+    except urllib.error.HTTPError as e:
+        print(f"  ✗ Google Sheets: HTTP {e.code} — planilha não pública ou ID errado")
+    except Exception as e:
+        print(f"  ✗ Google Sheets: {e}")
+    return False
 
 
 # ── Parse TSV ──────────────────────────────────────────────────────────────────
@@ -332,7 +359,7 @@ a{color:inherit}
 .card-img{width:100%;height:155px;object-fit:cover;object-position:top}
 .card-avatar{width:100%;height:155px;display:flex;align-items:center;justify-content:center;font-size:2.4rem;font-weight:700;color:#fff}
 .card-body{padding:.85rem}
-.card-name{font-size:.9rem;font-weight:600;line-height:1.3;margin-bottom:.1rem}
+.card-name{font-size:.9rem;font-weight:600;line-height:1.3;margin-bottom:.1rem;color:#fff}
 .card-alias{color:var(--acc);font-size:.75rem;font-style:italic;margin-bottom:.35rem}
 .card-meta{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.35rem}
 .rated-badge{position:absolute;top:7px;left:7px;background:rgba(0,0,0,.7);border:1px solid rgba(241,196,15,.4);border-radius:9px;color:#f1c40f;font-size:.68rem;font-weight:700;padding:1px 5px;z-index:10}
@@ -670,7 +697,10 @@ function clearFilters() {
   const s=document.getElementById('f-sort'); if(s) s.value='rating';
   applyFilters();
 }
-document.addEventListener('DOMContentLoaded', initFilters);
+// Chamada direta — não usa DOMContentLoaded porque após decriptação
+// do Staticrypt (document.write) o evento já disparou e não dispara de novo.
+if (document.getElementById('filter-bar')) initFilters();
+else document.addEventListener('DOMContentLoaded', initFilters);
 
 let selCharts = {};
 function renderSelecionados() {
@@ -888,6 +918,16 @@ function initMap() {
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 def main():
+    print("Buscando planilha...")
+    ok = fetch_sheet()
+    if not ok:
+        if not Path(TSV_FILE).exists() and Path(TSV_FALLBACK).exists():
+            import shutil
+            shutil.copy(TSV_FALLBACK, TSV_FILE)
+            print(f"  Usando arquivo local: {TSV_FALLBACK}")
+        elif not Path(TSV_FILE).exists():
+            raise FileNotFoundError(f"Sem dados: nem Sheets funcionou nem '{TSV_FILE}' existe.")
+
     print("Lendo inscrições...")
     candidates = parse_tsv()
     print(f"  {len(candidates)} inscritos")
