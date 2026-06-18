@@ -705,30 +705,29 @@ else document.addEventListener('DOMContentLoaded', initFilters);
 let selCharts = {};
 function renderSelecionados() {
   const box = document.getElementById('sel-content');
-  const list = CANDIDATES.filter(c => selected.has(c.id));
-  if (!list.length) { box.innerHTML='<div class="empty-state"><i class="fas fa-star"></i><h4>Nenhum selecionado</h4><p>Use ☆ nos cards para marcar candidatos.</p></div>'; return; }
+  const allSel = CANDIDATES.filter(c => selected.has(c.id));
+  if (!allSel.length) { box.innerHTML='<div class="empty-state"><i class="fas fa-star"></i><h4>Nenhum selecionado</h4><p>Use ☆ nos cards para marcar candidatos.</p></div>'; return; }
   Object.values(selCharts).forEach(c=>c&&c.destroy()); selCharts={};
   const genD={},racaD={},cidD={};
-  const dispT=list.filter(c=>c.disponivel_total).length, xaT=list.filter(c=>c.is_xamba).length;
-  list.forEach(c=>{ genD[c.genero||'N/I']=(genD[c.genero||'N/I']||0)+1; racaD[c.raca||'N/I']=(racaD[c.raca||'N/I']||0)+1; cidD[c.cidade||'N/I']=(cidD[c.cidade||'N/I']||0)+1; });
+  const dispT=allSel.filter(c=>c.disponivel_total).length, xaT=allSel.filter(c=>c.is_xamba).length;
+  allSel.forEach(c=>{ genD[c.genero||'N/I']=(genD[c.genero||'N/I']||0)+1; racaD[c.raca||'N/I']=(racaD[c.raca||'N/I']||0)+1; cidD[c.cidade||'N/I']=(cidD[c.cidade||'N/I']||0)+1; });
   const rCounts=[0,0,0,0,0]; let rSum=0,rN=0;
-  list.forEach(c=>{const r=getRating(c.id);if(r){rCounts[r-1]++;rSum+=r;rN++;}});
+  allSel.forEach(c=>{const r=getRating(c.id);if(r){rCounts[r-1]++;rSum+=r;rN++;}});
   const avg=rN?(rSum/rN).toFixed(1):null;
-  const sorted2=[...list].sort((a,b)=>{const ra=getRating(a.id),rb=getRating(b.id);return rb-ra||a.nome.localeCompare(b.nome);});
   const groupCounts={};
-  list.forEach(c=>{if(c.is_xamba)groupCounts['xamba']=(groupCounts['xamba']||0)+1;Object.keys(c.cultural_groups||{}).forEach(k=>{groupCounts[k]=(groupCounts[k]||0)+1;});});
+  allSel.forEach(c=>{if(c.is_xamba)groupCounts['xamba']=(groupCounts['xamba']||0)+1;Object.keys(c.cultural_groups||{}).forEach(k=>{groupCounts[k]=(groupCounts[k]||0)+1;});});
   let gcHtml='';
   if(groupCounts['xamba'])gcHtml+=`<div style="margin-top:.6rem"><span style="font-size:1.8rem;font-weight:700;color:#e8a045">${groupCounts['xamba']}</span> <span style="font-size:.72rem;color:var(--muted)">🥁 Xambá</span></div>`;
   Object.entries(groupCounts).filter(([k])=>k!=='xamba').forEach(([k,n])=>{const g=GROUPS_DEF[k];if(g)gcHtml+=`<div style="margin-top:.6rem"><span style="font-size:1.8rem;font-weight:700;color:${g.color}">${n}</span> <span style="font-size:.72rem;color:var(--muted)">${g.label}</span></div>`;});
   box.innerHTML=`<div style="padding:1.2rem 1.5rem">
     <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem">
       <h4 style="color:var(--acc);margin:0"><i class="fas fa-star me-2"></i>Selecionados</h4>
-      <span style="background:var(--sel);border-radius:20px;color:#fff;font-size:.85rem;padding:2px 10px">${list.length} pessoas</span>
+      <span style="background:var(--sel);border-radius:20px;color:#fff;font-size:.85rem;padding:2px 10px">${allSel.length} pessoas</span>
       <button onclick="exportCSV()" style="margin-left:auto;background:#27ae60;border:none;border-radius:6px;color:#fff;cursor:pointer;font-size:.8rem;padding:.3rem .7rem">⬇ Exportar CSV</button>
       <button onclick="clearAllSel()" style="background:#c0392b;border:none;border-radius:6px;color:#fff;cursor:pointer;font-size:.8rem;padding:.3rem .7rem">✕ Limpar</button>
     </div>
     <div class="row g-2 mb-3">
-      <div class="col-6 col-md-2"><div class="stat-pill"><span class="pill-num">${list.length}</span><span class="pill-lbl">Selecionados</span></div></div>
+      <div class="col-6 col-md-2"><div class="stat-pill"><span class="pill-num">${allSel.length}</span><span class="pill-lbl">Selecionados</span></div></div>
       <div class="col-6 col-md-2"><div class="stat-pill"><span class="pill-num" style="color:#2ecc71">${dispT}</span><span class="pill-lbl">Disponib. Total</span></div></div>
       <div class="col-6 col-md-2"><div class="stat-pill" style="border-color:#e8a04540"><span class="pill-num" style="color:#e8a045">${xaT}</span><span class="pill-lbl">Conn. Xambá</span></div></div>
       <div class="col-6 col-md-2"><div class="stat-pill"><span class="pill-num">${Object.keys(cidD).length}</span><span class="pill-lbl">Cidades</span></div></div>
@@ -741,12 +740,97 @@ function renderSelecionados() {
       <div class="col-md-4"><div class="chart-card"><div class="chart-ttl">Pontuação</div><canvas id="sel-n" height="200"></canvas></div></div>
     </div>
     ${gcHtml?`<div class="chart-card mb-3"><div class="chart-ttl">Vínculos Culturais</div>${gcHtml}</div>`:''}
-    <h6 style="color:var(--muted);margin-bottom:.8rem">Cards dos selecionados · por nota</h6>
-    <div class="row g-3">${sorted2.map(makeCard).join('')}</div>
+    <div class="filter-bar" id="sel-filter-bar" style="border-radius:8px;margin-bottom:1rem;border:1px solid var(--bdr)"></div>
+    <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem">
+      <h6 style="color:var(--muted);margin:0">Cards dos selecionados</h6>
+      <span id="sel-card-count" style="color:var(--muted);font-size:.8rem"></span>
+    </div>
+    <div class="row g-3" id="sel-cards-grid"></div>
   </div>`;
   const sg=sorted(genD);  selCharts.g=mkChart('sel-g','doughnut',sg.map(x=>x[0]),sg.map(x=>x[1]));
   const sr2=sorted(racaD); selCharts.r=mkChart('sel-r','doughnut',sr2.map(x=>x[0]),sr2.map(x=>x[1]));
   selCharts.n=new Chart(document.getElementById('sel-n'),{type:'bar',data:{labels:['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐'],datasets:[{data:rCounts,backgroundColor:['#e74c3c','#e67e22','#f1c40f','#2ecc71','#27ae60'],borderWidth:0,borderRadius:5}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,grid:{color:'#2a2a3e'}},x:{grid:{display:false}}}}});
+  initSelFilters(allSel);
+}
+
+function initSelFilters(allSel) {
+  const bar = document.getElementById('sel-filter-bar');
+  function mkSel(id, ph, pairs) {
+    const s = document.createElement('select'); s.id = id;
+    if (ph) { const o=document.createElement('option'); o.value=''; o.textContent=ph; s.appendChild(o); }
+    pairs.forEach(([v,l]) => { const o=document.createElement('option'); o.value=v; o.textContent=l!=null?l:v; s.appendChild(o); });
+    s.addEventListener('change', () => renderSelCards(getSelFiltered(allSel))); return s;
+  }
+  const search = document.createElement('input');
+  search.type='text'; search.id='sel-search'; search.placeholder='🔍 Nome, cidade, grupos...';
+  search.addEventListener('input', () => renderSelCards(getSelFiltered(allSel)));
+  const cidades = [...new Set(allSel.map(c=>c.cidade))].sort();
+  const generos = [...new Set(allSel.map(c=>c.genero).filter(Boolean))].sort();
+  const racas   = [...new Set(allSel.map(c=>c.raca).filter(Boolean))].sort();
+  const cultP = [['xamba','🥁 Xambá'],...Object.entries(GROUPS_DEF).map(([k,g])=>[k,g.label])];
+  [
+    search,
+    mkSel('sf-cidade','Todas as cidades',cidades.map(c=>[c,c])),
+    mkSel('sf-genero','Todos os gêneros',generos.map(g=>[g,g])),
+    mkSel('sf-raca','Todas as raças',racas.map(r=>[r,r])),
+    mkSel('sf-disponib','Toda disponib.',[['total','Disponib. total'],['parcial','Parcial']]),
+    mkSel('sf-xamba','Conn. Xambá',[['sim','🥁 Com vínculo'],['nao','Sem vínculo']]),
+    mkSel('sf-indicado','Indicação',[['sim','🤝 Por indicação'],['nao','Sem indicação']]),
+    mkSel('sf-nota','Qualquer nota',[['rated','Com nota'],['5','⭐⭐⭐⭐⭐'],['4','⭐⭐⭐⭐+'],['3','⭐⭐⭐+'],['unrated','Sem nota']]),
+    mkSel('sf-grupo','Grupo cultural',cultP),
+    mkSel('sf-sort',null,[['rating','Nota ↓'],['xamba','Xambá primeiro'],['name','Nome A-Z']]),
+  ].forEach(el => bar.appendChild(el));
+  const clr = document.createElement('button'); clr.className='clr-btn'; clr.textContent='✕ Limpar';
+  clr.addEventListener('click', () => {
+    ['sel-search','sf-cidade','sf-genero','sf-raca','sf-disponib','sf-xamba','sf-indicado','sf-nota','sf-grupo'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+    const s=document.getElementById('sf-sort'); if(s) s.value='rating';
+    renderSelCards(getSelFiltered(allSel));
+  });
+  bar.appendChild(clr);
+  renderSelCards(getSelFiltered(allSel));
+}
+
+function getSelFiltered(allSel) {
+  const v = id => document.getElementById(id)?.value || '';
+  const search = v('sel-search').toLowerCase();
+  let list = allSel.filter(c => {
+    if (search) { const b=[c.nome,c.nome_social,c.cidade,c.grupos_culturais,c.terreiro,c.comunidade,c.coletivos,c.instagram||'',c.por_que].join(' ').toLowerCase(); if(!b.includes(search)) return false; }
+    if (v('sf-cidade') && c.cidade !== v('sf-cidade')) return false;
+    if (v('sf-genero') && c.genero !== v('sf-genero')) return false;
+    if (v('sf-raca')   && c.raca   !== v('sf-raca'))   return false;
+    if (v('sf-disponib')==='total'  && !c.disponivel_total) return false;
+    if (v('sf-disponib')==='parcial' && c.disponivel_total) return false;
+    if (v('sf-xamba')==='sim' && !c.is_xamba) return false;
+    if (v('sf-xamba')==='nao' &&  c.is_xamba) return false;
+    if (v('sf-indicado')==='sim' && !c.is_indicado) return false;
+    if (v('sf-indicado')==='nao' &&  c.is_indicado) return false;
+    if (v('sf-grupo')==='xamba' && !c.is_xamba) return false;
+    if (v('sf-grupo') && v('sf-grupo')!=='xamba' && !(c.cultural_groups&&c.cultural_groups[v('sf-grupo')])) return false;
+    const nota=v('sf-nota');
+    if (nota==='rated'   && !getRating(c.id)) return false;
+    if (nota==='unrated' &&  getRating(c.id)) return false;
+    if (['3','4','5'].includes(nota) && getRating(c.id)<+nota) return false;
+    return true;
+  });
+  const ord = v('sf-sort')||'rating';
+  list.sort((a,b) => {
+    if (ord==='name') return a.nome.localeCompare(b.nome);
+    if (ord==='xamba' && a.is_xamba!==b.is_xamba) return a.is_xamba?-1:1;
+    const ra=getRating(a.id),rb=getRating(b.id);
+    if (ra!==rb) return rb-ra;
+    if (a.is_xamba!==b.is_xamba) return a.is_xamba?-1:1;
+    return a.nome.localeCompare(b.nome);
+  });
+  return list;
+}
+
+function renderSelCards(list) {
+  const grid = document.getElementById('sel-cards-grid');
+  if (!grid) return;
+  const allSel = CANDIDATES.filter(c => selected.has(c.id));
+  grid.innerHTML = list.map(makeCard).join('');
+  const cnt = document.getElementById('sel-card-count');
+  if (cnt) cnt.textContent = list.length < allSel.length ? `· ${list.length} de ${allSel.length} visíveis` : `· ${list.length} pessoas`;
 }
 function clearAllSel() { selected.clear(); localStorage.setItem('bongarbit_sel','[]'); syncSelUI(); renderSelecionados(); }
 
@@ -755,7 +839,7 @@ function exportCSV() {
   if (!list.length) return;
   const esc = v => {
     const s = v == null ? '' : String(v);
-    return (s.includes(',') || s.includes('"') || s.includes('\\n')) ? '"' + s.replace(/"/g,'""') + '"' : s;
+    return (s.includes(',') || s.includes('"') || s.includes('\n')) ? '"' + s.replace(/"/g,'""') + '"' : s;
   };
   const cols = [
     ['ID',            c => c.id],
@@ -793,7 +877,7 @@ function exportCSV() {
   ];
   const header = cols.map(([h]) => esc(h)).join(',');
   const rows   = list.map(c => cols.map(([,fn]) => esc(fn(c))).join(','));
-  const csv = '\\uFEFF' + [header, ...rows].join('\\r\\n'); // BOM para Excel
+  const csv = '﻿' + [header, ...rows].join('\r\n'); // BOM para Excel
   const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
   const url  = URL.createObjectURL(blob);
   const a    = document.createElement('a');
