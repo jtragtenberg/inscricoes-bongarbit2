@@ -724,7 +724,8 @@ function renderSelecionados() {
     <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem">
       <h4 style="color:var(--acc);margin:0"><i class="fas fa-star me-2"></i>Selecionados</h4>
       <span style="background:var(--sel);border-radius:20px;color:#fff;font-size:.85rem;padding:2px 10px">${list.length} pessoas</span>
-      <button onclick="clearAllSel()" style="margin-left:auto;background:#c0392b;border:none;border-radius:6px;color:#fff;cursor:pointer;font-size:.8rem;padding:.3rem .7rem">✕ Limpar</button>
+      <button onclick="exportCSV()" style="margin-left:auto;background:#27ae60;border:none;border-radius:6px;color:#fff;cursor:pointer;font-size:.8rem;padding:.3rem .7rem">⬇ Exportar CSV</button>
+      <button onclick="clearAllSel()" style="background:#c0392b;border:none;border-radius:6px;color:#fff;cursor:pointer;font-size:.8rem;padding:.3rem .7rem">✕ Limpar</button>
     </div>
     <div class="row g-2 mb-3">
       <div class="col-6 col-md-2"><div class="stat-pill"><span class="pill-num">${list.length}</span><span class="pill-lbl">Selecionados</span></div></div>
@@ -748,6 +749,57 @@ function renderSelecionados() {
   selCharts.n=new Chart(document.getElementById('sel-n'),{type:'bar',data:{labels:['⭐','⭐⭐','⭐⭐⭐','⭐⭐⭐⭐','⭐⭐⭐⭐⭐'],datasets:[{data:rCounts,backgroundColor:['#e74c3c','#e67e22','#f1c40f','#2ecc71','#27ae60'],borderWidth:0,borderRadius:5}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,grid:{color:'#2a2a3e'}},x:{grid:{display:false}}}}});
 }
 function clearAllSel() { selected.clear(); localStorage.setItem('bongarbit_sel','[]'); syncSelUI(); renderSelecionados(); }
+
+function exportCSV() {
+  const list = CANDIDATES.filter(c => selected.has(c.id));
+  if (!list.length) return;
+  const esc = v => {
+    const s = v == null ? '' : String(v);
+    return (s.includes(',') || s.includes('"') || s.includes('\\n')) ? '"' + s.replace(/"/g,'""') + '"' : s;
+  };
+  const cols = [
+    ['ID',            c => c.id],
+    ['Timestamp',     c => c.timestamp],
+    ['Nome',          c => c.nome],
+    ['Nome Social',   c => c.nome_social],
+    ['Telefone',      c => c.telefone],
+    ['CPF',           c => c.cpf],
+    ['E-mail',        c => c.email],
+    ['Endereço',      c => c.endereco],
+    ['CEP',           c => c.cep],
+    ['Cidade/Estado', c => c.cidade_estado],
+    ['Cidade',        c => c.cidade],
+    ['Idade',         c => c.idade || c.idade_raw],
+    ['Faixa Etária',  c => c.faixa_etaria],
+    ['Gênero',        c => c.genero],
+    ['Raça/Cor',      c => c.raca],
+    ['PcD',           c => c.pcd],
+    ['Desc. Defic.',  c => c.desc_deficiencia],
+    ['Renda',         c => c.renda],
+    ['Terreiro',      c => c.terreiro],
+    ['Comunidade',    c => c.comunidade],
+    ['Grupos Culturais', c => c.grupos_culturais],
+    ['Coletivos',     c => c.coletivos],
+    ['Por que quer participar', c => c.por_que],
+    ['Disponibilidade', c => c.disponibilidade],
+    ['Disp. Total',   c => c.disponivel_total ? 'Sim' : 'Não'],
+    ['Redes Sociais', c => c.redes_sociais],
+    ['Instagram',     c => c.instagram],
+    ['Como soube',    c => c.como_soube],
+    ['Indicação',     c => c.is_indicado ? 'Sim' : 'Não'],
+    ['Indicador',     c => c.indicador],
+    ['Vinc. Xambá',   c => c.is_xamba ? 'Sim' : 'Não'],
+    ['Nota (estrelas)', c => getRating(c.id) || ''],
+  ];
+  const header = cols.map(([h]) => esc(h)).join(',');
+  const rows   = list.map(c => cols.map(([,fn]) => esc(fn(c))).join(','));
+  const csv = '\\uFEFF' + [header, ...rows].join('\\r\\n'); // BOM para Excel
+  const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = 'selecionados_bongarbit.csv'; a.click();
+  URL.revokeObjectURL(url);
+}
 
 function showModal(id) {
   const c = CANDIDATES.find(x=>x.id===id); if(!c) return;
