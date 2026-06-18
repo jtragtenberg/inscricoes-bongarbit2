@@ -1,0 +1,621 @@
+{
+  "1": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "2": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "3": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "4": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "5": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/5.jpg",
+    "path_old": "imagens/5.jpg",
+    "source": null
+  },
+  "6": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "7": {
+    "has_photo": true,
+    "has_face": true,
+    "source": "instagram:adovaleart",
+    "path": "imagens/7.jpg"
+  },
+  "8": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "9": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "10": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "11": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "12": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/12.jpg",
+    "path_old": "imagens/12.jpg",
+    "source": null
+  },
+  "13": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "14": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/14.jpg",
+    "path_old": "imagens/14.jpg",
+    "source": null
+  },
+  "15": {
+    "has_photo": true,
+    "has_face": true,
+    "path": "imagens/15.jpg"
+  },
+  "16": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "17": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "18": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "19": {
+    "has_photo": true,
+    "has_face": true,
+    "path": "imagens/19.jpg"
+  },
+  "20": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "21": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "22": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "23": {
+    "has_photo": true,
+    "has_face": true,
+    "path": "imagens/23.jpg"
+  },
+  "24": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "25": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/25.jpg",
+    "path_old": "imagens/25.jpg",
+    "source": null
+  },
+  "26": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/26.jpg",
+    "path_old": "imagens/26.jpg",
+    "source": null
+  },
+  "27": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "28": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "29": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "30": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "31": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "32": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "33": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "34": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "35": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/35.jpg",
+    "path_old": "imagens/35.jpg",
+    "source": null
+  },
+  "36": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "37": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "38": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/38.jpg",
+    "path_old": "imagens/38.jpg",
+    "source": null
+  },
+  "39": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/39.jpg",
+    "path_old": "imagens/39.jpg",
+    "source": null
+  },
+  "40": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "41": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "42": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "43": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/43.jpg",
+    "path_old": "imagens/43.jpg",
+    "source": null
+  },
+  "44": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/44.jpg",
+    "path_old": "imagens/44.jpg",
+    "source": null
+  },
+  "45": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/45.jpg",
+    "path_old": "imagens/45.jpg",
+    "source": null
+  },
+  "46": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "47": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/47.jpg",
+    "path_old": "imagens/47.jpg",
+    "source": null
+  },
+  "48": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/48.jpg",
+    "path_old": "imagens/48.jpg",
+    "source": null
+  },
+  "49": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "50": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "51": {
+    "has_photo": true,
+    "has_face": true,
+    "path": "imagens/51.jpg"
+  },
+  "52": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "53": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/53.jpg",
+    "path_old": "imagens/53.jpg",
+    "source": null
+  },
+  "54": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "55": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "56": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "57": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "58": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "59": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "60": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "61": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "62": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/62.jpg",
+    "path_old": "imagens/62.jpg",
+    "source": null
+  },
+  "63": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "64": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "65": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "66": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "67": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/67.jpg",
+    "path_old": "imagens/67.jpg",
+    "source": null
+  },
+  "68": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/68.jpg",
+    "path_old": "imagens/68.jpg",
+    "source": null
+  },
+  "69": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "70": {
+    "has_photo": true,
+    "has_face": true,
+    "path": "imagens/70.jpg",
+    "path_old": "imagens/70.jpg",
+    "source": "gravatar:gabriel.jbs85@gmail.com"
+  },
+  "71": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "72": {
+    "has_photo": true,
+    "has_face": true,
+    "path": "imagens/72.jpg"
+  },
+  "73": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/73.jpg",
+    "path_old": "imagens/73.jpg",
+    "source": null
+  },
+  "74": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/74.jpg",
+    "path_old": "imagens/74.jpg",
+    "source": null
+  },
+  "75": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/75.jpg",
+    "path_old": "imagens/75.jpg",
+    "source": null
+  },
+  "76": {
+    "has_photo": true,
+    "has_face": true,
+    "path": "imagens/76.jpg"
+  },
+  "77": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "78": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/78.jpg",
+    "path_old": "imagens/78.jpg",
+    "source": null
+  },
+  "79": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/79.jpg",
+    "path_old": "imagens/79.jpg",
+    "source": null
+  },
+  "80": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "81": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "82": {
+    "has_photo": true,
+    "has_face": true,
+    "path": "imagens/82.jpg"
+  },
+  "83": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/83.jpg",
+    "path_old": "imagens/83.jpg",
+    "source": null
+  },
+  "84": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "85": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "86": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "87": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/87.jpg",
+    "path_old": "imagens/87.jpg",
+    "source": null
+  },
+  "88": {
+    "has_photo": true,
+    "has_face": true,
+    "source": "instagram:quinho_caetes",
+    "path": "imagens/88.jpg"
+  },
+  "89": {
+    "has_photo": true,
+    "has_face": true,
+    "path": "imagens/89.jpg"
+  },
+  "90": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/90.jpg",
+    "path_old": "imagens/90.jpg",
+    "source": null
+  },
+  "91": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "92": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/92.jpg",
+    "path_old": "imagens/92.jpg",
+    "source": null
+  },
+  "93": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "94": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "95": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "96": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "97": {
+    "has_photo": true,
+    "has_face": true,
+    "path": "imagens/97.jpg"
+  },
+  "98": {
+    "has_photo": false,
+    "has_face": false,
+    "path": "imagens/98.jpg",
+    "path_old": "imagens/98.jpg",
+    "source": null
+  },
+  "99": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  },
+  "100": {
+    "has_photo": false,
+    "has_face": false,
+    "source": null,
+    "path": null
+  }
+}

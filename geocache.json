@@ -1,0 +1,467 @@
+{
+  "52091300": {
+    "lat": -7.9993011,
+    "lon": -34.9328306,
+    "source": "brasilapi",
+    "city": "Recife",
+    "neighborhood": "Nova Descoberta",
+    "street": "Rua Córrego do Joaquim"
+  },
+  "50740370": {
+    "lat": -8.0442205,
+    "lon": -34.9495986,
+    "source": "brasilapi",
+    "city": "Recife",
+    "neighborhood": "Várzea",
+    "street": "Rua Cassilândia"
+  },
+  "52130471": {
+    "lat": -8.0522,
+    "lon": -34.9286,
+    "source": "city_fallback"
+  },
+  "53280100": {
+    "lat": -7.9969467,
+    "lon": -34.8895564,
+    "source": "nominatim"
+  },
+  "53130555": {
+    "lat": -7.9704146,
+    "lon": -34.8327142,
+    "source": "nominatim"
+  },
+  "50620510": {
+    "lat": -8.043276,
+    "lon": -34.9124382,
+    "source": "nominatim"
+  },
+  "53405550": {
+    "lat": -7.9432034,
+    "lon": -34.8658614,
+    "source": "nominatim"
+  },
+  "52171050": {
+    "lat": -8.0142131,
+    "lon": -34.9553882,
+    "source": "nominatim"
+  },
+  "53270600": {
+    "lat": -8.0021537,
+    "lon": -34.8927596,
+    "source": "nominatim"
+  },
+  "53230280": {
+    "lat": -8.011682,
+    "lon": -34.8634397,
+    "source": "nominatim"
+  },
+  "53270370": {
+    "lat": -8.0024538,
+    "lon": -34.8936028,
+    "source": "nominatim"
+  },
+  "53417190": {
+    "lat": -7.9373501,
+    "lon": -34.8924689,
+    "source": "nominatim"
+  },
+  "53401078": {
+    "lat": -7.9399,
+    "lon": -34.8862,
+    "source": "city_fallback"
+  },
+  "53150010": {
+    "lat": -8.0089,
+    "lon": -34.8553,
+    "source": "city_fallback"
+  },
+  "54330350": {
+    "lat": -8.1707293,
+    "lon": -34.9279159,
+    "source": "nominatim"
+  },
+  "53370320": {
+    "lat": -8.0089,
+    "lon": -34.8553,
+    "source": "city_fallback"
+  },
+  "52071243": {
+    "lat": -8.0245434,
+    "lon": -34.9271427,
+    "source": "nominatim"
+  },
+  "54720840": {
+    "lat": -8.0029,
+    "lon": -35.028,
+    "source": "city_fallback"
+  },
+  "51190720": {
+    "lat": -8.1128571,
+    "lon": -34.9197971,
+    "source": "nominatim"
+  },
+  "53413010": {
+    "lat": -7.9355437,
+    "lon": -34.902303,
+    "source": "nominatim"
+  },
+  "52120183": {
+    "lat": -8.0224573,
+    "lon": -34.8892181,
+    "source": "nominatim"
+  },
+  "53260551": {
+    "lat": -8.0089,
+    "lon": -34.8553,
+    "source": "city_fallback"
+  },
+  "52030040": {
+    "lat": -8.0371581,
+    "lon": -34.8886166,
+    "source": "nominatim"
+  },
+  "53220490": {
+    "lat": -8.0089,
+    "lon": -34.8553,
+    "source": "city_fallback"
+  },
+  "53220107": {
+    "lat": -8.0522,
+    "lon": -34.9286,
+    "source": "city_fallback"
+  },
+  "52040090": {
+    "lat": -8.0124019,
+    "lon": -34.8980702,
+    "source": "nominatim"
+  },
+  "50780640": {
+    "lat": -8.0522,
+    "lon": -34.9286,
+    "source": "city_fallback"
+  },
+  "53060705": {
+    "lat": -8.0089,
+    "lon": -34.8553,
+    "source": "city_fallback"
+  },
+  "52041705": {
+    "lat": -8.0324679,
+    "lon": -34.8895042,
+    "source": "nominatim"
+  },
+  "53405703": {
+    "lat": -7.967641,
+    "lon": -34.8894364,
+    "source": "nominatim"
+  },
+  "53180050": {
+    "lat": -7.9907324,
+    "lon": -34.8929432,
+    "source": "nominatim"
+  },
+  "53290335": {
+    "lat": -8.0023387,
+    "lon": -34.8680118,
+    "source": "nominatim"
+  },
+  "53350550": {
+    "lat": -7.9821283,
+    "lon": -34.8591083,
+    "source": "nominatim"
+  },
+  "50900360": {
+    "lat": -8.0872977,
+    "lon": -34.9414434,
+    "source": "nominatim"
+  },
+  "53280050": {
+    "lat": -7.9935133,
+    "lon": -34.8903074,
+    "source": "nominatim"
+  },
+  "53270360": {
+    "lat": -8.0013814,
+    "lon": -34.8938052,
+    "source": "nominatim"
+  },
+  "53370440": {
+    "lat": -7.9925798,
+    "lon": -34.8647847,
+    "source": "nominatim"
+  },
+  "53210095": {
+    "lat": -8.0089,
+    "lon": -34.8553,
+    "source": "city_fallback"
+  },
+  "52081110": {
+    "lat": -8.0129687,
+    "lon": -34.9212773,
+    "source": "nominatim"
+  },
+  "53370100": {
+    "lat": -7.9880471,
+    "lon": -34.8585209,
+    "source": "nominatim"
+  },
+  "53320050": {
+    "lat": -7.9975092,
+    "lon": -34.8498435,
+    "source": "nominatim"
+  },
+  "53280090": {
+    "lat": -8.0265746,
+    "lon": -34.8671082,
+    "source": "nominatim"
+  },
+  "52110185": {
+    "lat": -8.0522,
+    "lon": -34.9286,
+    "source": "city_fallback"
+  },
+  "53025010": {
+    "lat": -8.0166083,
+    "lon": -34.8541649,
+    "source": "nominatim"
+  },
+  "54460405": {
+    "lat": -8.1787,
+    "lon": -35.0035,
+    "source": "city_fallback"
+  },
+  "53290170": {
+    "lat": -8.0068949,
+    "lon": -34.8693604,
+    "source": "nominatim"
+  },
+  "52031212": {
+    "lat": -8.0370505,
+    "lon": -34.8814029,
+    "source": "nominatim"
+  },
+  "53441340": {
+    "lat": -7.9399,
+    "lon": -34.8862,
+    "source": "city_fallback"
+  },
+  "52111460": {
+    "lat": -8.0181633,
+    "lon": -34.8957695,
+    "source": "nominatim"
+  },
+  "50060410": {
+    "lat": -8.066826,
+    "lon": -34.8870166,
+    "source": "nominatim"
+  },
+  "52015020": {
+    "lat": -8.0444376,
+    "lon": -34.8933046,
+    "source": "nominatim"
+  },
+  "52280103": {
+    "lat": -8.0182385,
+    "lon": -34.9139302,
+    "source": "nominatim"
+  },
+  "50050245": {
+    "lat": -8.0522,
+    "lon": -34.9286,
+    "source": "city_fallback"
+  },
+  "53270095": {
+    "lat": -8.0089,
+    "lon": -34.8553,
+    "source": "city_fallback"
+  },
+  "53407780": {
+    "lat": -7.9564733,
+    "lon": -34.8879877,
+    "source": "nominatim"
+  },
+  "53210100": {
+    "lat": -8.0089,
+    "lon": -34.8553,
+    "source": "city_fallback"
+  },
+  "52131100": {
+    "lat": -8.0082864,
+    "lon": -34.9006472,
+    "source": "nominatim"
+  },
+  "53020310": {
+    "lat": -8.0128508,
+    "lon": -34.8552587,
+    "source": "nominatim"
+  },
+  "53439300": {
+    "lat": -7.9399,
+    "lon": -34.8862,
+    "source": "city_fallback"
+  },
+  "53020090": {
+    "lat": -8.0185601,
+    "lon": -34.8538996,
+    "source": "nominatim"
+  },
+  "50740040": {
+    "lat": -8.0522,
+    "lon": -34.9286,
+    "source": "city_fallback"
+  },
+  "50070095": {
+    "lat": -8.0579494,
+    "lon": -34.8924461,
+    "source": "nominatim"
+  },
+  "53140180": {
+    "lat": -7.9994355,
+    "lon": -34.8710469,
+    "source": "nominatim"
+  },
+  "54280490": {
+    "lat": -8.145423,
+    "lon": -34.9355545,
+    "source": "nominatim"
+  },
+  "53290668": {
+    "lat": -8.0089,
+    "lon": -34.8553,
+    "source": "city_fallback"
+  },
+  "51250430": {
+    "lat": -8.0522,
+    "lon": -34.9286,
+    "source": "city_fallback"
+  },
+  "53320470": {
+    "lat": -8.0000727,
+    "lon": -34.8536847,
+    "source": "nominatim"
+  },
+  "52011140": {
+    "lat": -8.0474934,
+    "lon": -34.9019338,
+    "source": "nominatim"
+  },
+  "52140190": {
+    "lat": -8.0052863,
+    "lon": -34.9054616,
+    "source": "brasilapi",
+    "city": "Recife",
+    "neighborhood": "Dois Unidos",
+    "street": "Rua Monsenhor Viana"
+  },
+  "53421030": {
+    "lat": -7.9399,
+    "lon": -34.8862,
+    "source": "city_fallback"
+  },
+  "52050375": {
+    "lat": -8.0373593,
+    "lon": -34.8971462,
+    "source": "brasilapi",
+    "city": "Recife",
+    "neighborhood": "Aflitos",
+    "street": "Rua Teles Júnior"
+  },
+  "50110030": {
+    "lat": -8.0432133,
+    "lon": -34.8831545,
+    "source": "nominatim"
+  },
+  "53120140": {
+    "lat": -8.0145007,
+    "lon": -34.8492757,
+    "source": "nominatim"
+  },
+  "50060060": {
+    "lat": -8.0634312,
+    "lon": -34.8839777,
+    "source": "nominatim"
+  },
+  "53431710": {
+    "lat": -7.9009312,
+    "lon": -34.8257034,
+    "source": "nominatim"
+  },
+  "52120100": {
+    "lat": -8.0203152,
+    "lon": -34.8739839,
+    "source": "nominatim"
+  },
+  "53200710": {
+    "lat": -8.0089,
+    "lon": -34.8553,
+    "source": "city_fallback"
+  },
+  "53240140": {
+    "lat": -8.0066911,
+    "lon": -34.8517488,
+    "source": "brasilapi",
+    "city": "Olinda",
+    "neighborhood": "Monte",
+    "street": "Avenida Dom Bonifácio Jansen"
+  },
+  "53280085": {
+    "lat": -8.0089,
+    "lon": -34.8553,
+    "source": "city_fallback"
+  },
+  "53240570": {
+    "lat": -8.008944,
+    "lon": -34.8556501,
+    "source": "nominatim"
+  },
+  "50080060": {
+    "lat": -8.0612634,
+    "lon": -34.8840049,
+    "source": "nominatim"
+  },
+  "53020500": {
+    "lat": -8.0099676,
+    "lon": -34.8554323,
+    "source": "nominatim"
+  },
+  "53270325": {
+    "lat": -8.0089,
+    "lon": -34.8553,
+    "source": "city_fallback"
+  },
+  "53540140": {
+    "lat": -8.0522,
+    "lon": -34.9286,
+    "source": "default_recife"
+  },
+  "53020053": {
+    "lat": -8.0182352,
+    "lon": -34.8533435,
+    "source": "nominatim"
+  },
+  "51011160": {
+    "lat": -8.0963033,
+    "lon": -34.8946884,
+    "source": "nominatim"
+  },
+  "53280060": {
+    "lat": -7.9943499,
+    "lon": -34.8893475,
+    "source": "nominatim"
+  },
+  "53422130": {
+    "lat": -7.9472622,
+    "lon": -34.9023019,
+    "source": "nominatim"
+  },
+  "53270655": {
+    "lat": -8.0000808,
+    "lon": -34.8911011,
+    "source": "nominatim"
+  },
+  "53020070": {
+    "lat": -8.0195735,
+    "lon": -34.8539903,
+    "source": "nominatim"
+  }
+}
