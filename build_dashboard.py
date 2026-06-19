@@ -6,7 +6,7 @@ from pathlib import Path
 from collections import Counter
 
 SHEET_ID = "1aV8c0MJ87UlccE056i3q1S0BXAbvwbaKeXxX9e0ZfF8"
-TSV_FILE = "inscritos.tsv"          # arquivo local (baixado do Sheets ou copiado manualmente)
+TSV_FILE = "inscritos.csv"          # arquivo local (baixado do Sheets ou copiado manualmente)
 TSV_FALLBACK = "Inscritos Bongarbit - Escola de Luteria - Página1 (2).tsv"
 OUTPUT   = "index.html"
 IMAGES   = "imagens"
@@ -169,12 +169,12 @@ def detect_groups(c):
 # ── Google Sheets ─────────────────────────────────────────────────────────────
 
 def fetch_sheet():
-    """Baixa o TSV da planilha pública do Google Sheets.
+    """Baixa o CSV da planilha pública do Google Sheets via gviz API.
     A planilha precisa estar com acesso 'Qualquer pessoa com o link pode ver'.
     Salva em TSV_FILE para ser lido por parse_tsv().
     """
     import urllib.request, urllib.error
-    url = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=tsv&gid=0"
+    url = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv"
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=15) as r:
@@ -197,7 +197,7 @@ def parse_tsv():
     candidates = []
     seen = set()
     with open(TSV_FILE, encoding="utf-8") as f:
-        reader = csv.reader(f, delimiter="\t")
+        reader = csv.reader(f)
         next(reader)
         for row in reader:
             while len(row) < 24:
